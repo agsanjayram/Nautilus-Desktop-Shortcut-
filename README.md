@@ -25,6 +25,17 @@ This extension brings it back in a **clean, native, and modern way** — without
 
 ---
 
+---
+
+## 🚀 Install (Copy • Paste • Run)
+
+Open a terminal and run:
+
+```bash
+curl -fsSL https://raw.githubusercontent.com/agsanjayram/Nautilus-Desktop-Shortcut-/main/install.sh | bash
+```
+
+---
 
 ## 🖥️ How It Works
 
