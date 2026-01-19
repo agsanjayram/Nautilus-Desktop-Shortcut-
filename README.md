@@ -45,7 +45,6 @@ curl -fsSL https://raw.githubusercontent.com/agsanjayram/Nautilus-Desktop-Shortc
   <img src="assets/1.png" alt="Nautilus Desktop Shortcut" width="420">
 </p>
 3. A `.desktop` launcher appears on your Desktop
-4. Right-click → **Allow Launching** (first run only)
 
 ---
 

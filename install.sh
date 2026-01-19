@@ -21,11 +21,11 @@ if [ "$PM" = "unknown" ]; then
     exit 1
 fi
 
-# Check Nautilus
+# Install Nautilus if missing
 if command -v nautilus >/dev/null 2>&1; then
     echo "✔ Nautilus already installed — skipping"
 else
-    echo "📦 Nautilus not found — installing..."
+    echo "📦 Installing Nautilus..."
 
     case "$PM" in
         apt)
@@ -44,7 +44,7 @@ else
     esac
 fi
 
-# Install python bindings
+# Install Python bindings
 echo "🐍 Installing Nautilus Python bindings..."
 case "$PM" in
     apt)
@@ -71,6 +71,7 @@ cat > "$EXT_FILE" <<'EOF'
 from gi.repository import Nautilus, GObject
 import os
 import urllib.parse
+import subprocess
 
 DESKTOP_DIR = os.path.join(os.path.expanduser("~"), "Desktop")
 
@@ -83,7 +84,7 @@ class CreateDesktopShortcut(GObject.GObject, Nautilus.MenuProvider):
         item = Nautilus.MenuItem(
             name="CreateDesktopShortcut",
             label="Create Desktop Shortcut",
-            tip="Create a shortcut on the Desktop"
+            tip="Create a trusted desktop shortcut"
         )
 
         item.connect("activate", self.create_shortcut, files)
@@ -104,13 +105,20 @@ Icon=text-x-generic
 Terminal=false
 """)
 
+            # Make executable
             os.chmod(shortcut_path, 0o755)
+
+            # 🔐 Mark as trusted (removes "Allow Launching")
+            subprocess.run(
+                ["gio", "set", shortcut_path, "metadata::trusted", "true"],
+                check=False
+            )
 EOF
 
-# Restart Nautilus safely
+# Restart Nautilus
 echo "🔄 Restarting Nautilus..."
 nautilus -q || true
 
 echo "✅ Installation complete!"
 echo "➡ Right-click any file → Create Desktop Shortcut"
-echo "⚠ First launch: right-click shortcut → Allow Launching"
+echo "🚀 Shortcut launches immediately (no Allow Launching prompt)"
