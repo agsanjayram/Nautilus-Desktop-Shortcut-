@@ -1,2 +1,46 @@
-# Nautilus-Desktop-Shortcut-
-Nautilus Desktop Shortcut is a lightweight Nautilus Python extension for GNOME that adds a right-click menu option to instantly create a Desktop shortcut for any file, folder, or photo.  No copy–paste. No dragging. Just right-click and go 🚀
+🐚 Nautilus Desktop Shortcut
+
+Nautilus Desktop Shortcut is a lightweight Nautilus Python extension for GNOME that adds a right-click menu option to instantly create a Desktop shortcut for any file, folder, or photo.
+
+No copy–paste. No dragging. Just right-click and go 🚀
+
+✨ Features
+
+📂 Works with all file types (images, PDFs, folders, scripts, etc.)
+
+🖱️ One-click “Create Desktop Shortcut” option
+
+🐍 Built using Nautilus Python API
+
+🧠 Uses default applications via xdg-open
+
+🔒 GNOME-safe (respects launcher security)
+
+💡 Simple install & uninstall scripts
+
+🎯 Why This Exists
+
+GNOME removed native desktop shortcut creation.
+This extension brings it back in a clean, native, and modern way — without hacks or copy/paste workflows.
+
+🖥️ How It Works
+
+Right-click any file or folder in Nautilus
+
+Select Create Desktop Shortcut
+
+A .desktop launcher appears on your Desktop
+
+Right-click → Allow Launching (first run only)
+
+🐧 Supported Systems
+
+Ubuntu 20.04+
+
+GNOME Shell
+
+Nautilus (Files)
+
+📜 License
+
+MIT License — free to use, modify, and share ❤️
