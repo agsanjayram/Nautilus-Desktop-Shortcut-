@@ -73,7 +73,7 @@ fi
 log "Installing Nautilus Python bindings"
 case "$PM" in
     apt|zypper) install_pkg python3-nautilus ;;
-    dnf)        install_pkg python3-nautilus ;;
+    dnf)        install_pkg nautilus-python  ;;
     pacman)     install_pkg python-nautilus ;;
 esac
 
